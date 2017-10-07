@@ -56,7 +56,20 @@
 
  
      <div id="map"></div>
-    
+      
+    <div id="results">
+        <hr>
+        <table>
+            <thead>
+              <tr>
+                <th>Locations near you!</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+     </div>
+
+
     <!--Import jQuery before materialize.js-->
       <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
@@ -80,6 +93,8 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0jSSeKVs-JuEd77jvV2Gi8Ndc89czfoI&callback=initMap&libraries=places">
       </script>
       <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0jSSeKVs-JuEd77jvV2Gi8Ndc89czfoI&libraries=places"></script> -->
+      <script type="text/javascript" src="./logic.js"></script>
+
 
   </body>
 </html>
