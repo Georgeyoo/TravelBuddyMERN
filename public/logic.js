@@ -7,8 +7,8 @@ $("#placeFinder").on("click", function() {
 
                 $.ajax({
                     type: 'GET',
-                    url: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com:11535/heroku_5m0cnwwj/api/read',
-                    // url: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com',
+                    // url: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com:11535/heroku_5m0cnwwj/api/read',
+                    url: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com'ruNrM2S2Mpz5_Xmf4AxmiO6cTgyX6zOf,
                     dataType: 'jsonp',
                 }).done(function(data) {
                     console.log(data);
@@ -66,7 +66,7 @@ function addressShifter() {
     destinationLng = -122.393743;
 
    $.ajax({
-        url: "https://api.uber.com/v1/estimates/price?start_latitude=" + originLat
+        url: "https://crossorigin.me/https://api.uber.com/v1/estimates/price?start_latitude=" + originLat
             + "&start_longitude=" + originLng
             + "&end_latitude=" + destinationLat
             + "&end_longitude=" + destinationLng
