@@ -7,7 +7,7 @@ $("#placeFinder").on("click", function() {
 
                 $.ajax({
                     type: 'GET',
-                    uri: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com:11535/heroku_5m0cnwwj/api/read',
+                    url: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com:11535/heroku_5m0cnwwj/api/read',
                     // url: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com',
                     dataType: 'jsonp',
                 }).done(function(data) {
