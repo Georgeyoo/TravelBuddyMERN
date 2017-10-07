@@ -13,8 +13,8 @@ class NavBar extends Component {
             <a href="#!" className="brand-logo center">TravelBuddy</a>
             <a href="#!" data-activates="mobile-demo" className="right button-collapse"><i className="material-icons">menu</i></a>
             <ul className="right hide-on-med-and-down">
-              <li><a href="login.html">Login</a></li>
-              <li><a href="signup.html" className="waves-effect waves-light red btn">Sign Up</a></li>
+            
+              <li><a href="signup.html" className="waves-effect waves-light red btn">Logout</a></li>
             </ul>
             <ul className="side-nav" id="mobile-demo">
               <li><a href="login.html">Login</a></li>
