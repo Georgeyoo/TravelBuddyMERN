@@ -1,10 +1,14 @@
-$("#button").on("click", function() {
+var locationCoordinates = {lat: 37.791298, lng: -122.393743}
+var address, originLat, originLng, destinationLat, destinationLng;
+
+$("#placeFinder").on("click", function() {
 
     event.preventDefault();
 
                 $.ajax({
-                    method: 'GET',
-                    url: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com:11535/heroku_5m0cnwwj/api/read',
+                    type: 'GET',
+                    uri: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com:11535/heroku_5m0cnwwj/api/read',
+                    // url: 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com',
                     dataType: 'jsonp',
                 }).done(function(data) {
                     console.log(data);
@@ -43,27 +47,36 @@ function showPosition(position) {
     initMap();
 }
 
-$("#userLocation").on("click", getLocation);
+function addressShifter() {
+    var address = $("#address").val().trim();
+    var convertedAddress = address.split(' ').join('+');
+    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + convertedAddress + "&key=AIzaSyAPcxvzzVjsR9zzeLUTBhV87D-a9OER6HQ";
+    
+    $.ajax({
+        url:queryURL,
+        method:'GET'
+    }).done(function(response) {
+        locationCoordinates = response.results[0].geometry.location;
 
-// module.exports = {
-//     readLocations(): function {
-//         $(document).ready(function() {
-//             $(".result").click(function() {
-//                 $.ajax({
-//                     type: 'GET',
-//                     url: 'mongodb://localhost/api/read',
-//                     dataType: 'jsonp',
-//                     }).done(function(data) {
-//                         var tbody = $('tbody');
-//                         tbody.html('');
-//                         data.locations.forEach(function(locations) {
-//                             tbody.append('<tr>\ 
-//                                             <td class="locationName">' + locations.name + '</td>\
-//                                             <td class="locationAddress">' + locations.address + '</td>\
-//                                          </tr>')
-//                         });
-//                     })
-//             })
-//         })    
-//     }
-// }
+        initMap();
+    });
+    originLat = locationCoordinates.lat;
+    originLng = locationCoordinates.lng;
+    destinationLat = 37.791298;
+    destinationLng = -122.393743;
+
+   $.ajax({
+        url: "https://api.uber.com/v1/estimates/price?start_latitude=" + originLat
+            + "&start_longitude=" + originLng
+            + "&end_latitude=" + destinationLat
+            + "&end_longitude=" + destinationLng
+            + "&server_token=tWSk3NDhzqKCJpuTZxamg66LqSf0EZkf7dqWeygm",
+        method: "GET"
+    }).done(function(response) {
+        console.log(response);
+        console.log("hi");
+    });
+}
+
+$("#userLocation").on("click", getLocation);
+$("#placeFinder").on("click", addressShifter);

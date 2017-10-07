@@ -1,4 +1,5 @@
 var Locations = require("../models/locations");
+var mongoose = require("mongoose");
 
 var locations = [
 	new Locations({
@@ -46,3 +47,8 @@ var locations = [
 		"long": -122.4058,
 		"address": "1 Telegraph Hill Blvd."
 	})
+for (var i = 0; i < locations.length; i ++) {
+	locations[i].save();
+}
+
+mongoose.disconnect();

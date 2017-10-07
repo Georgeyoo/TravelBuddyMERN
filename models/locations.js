@@ -25,5 +25,6 @@ var schema = new Schema({
   }
 
 });
+var Locations = mongoose.model('Locations', schema);
 
-model.exports = mongoose.model('Locations', schema);
+module.exports = Locations;

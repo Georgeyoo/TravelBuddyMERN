@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const Locations = require("./models/locations");
 
 var app = express();
-var port = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -16,6 +17,7 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 app.use(express.static('./public'));
 
 var link = 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com:11535/heroku_5m0cnwwj';
+// var link = 'mongodb://heroku_5m0cnwwj:b69khihkp8sudn1hk8badffifc@ds111535.mlab.com';
 //Local link
 // var link = 'mongodb://localhost/locations';
 
@@ -36,7 +38,7 @@ app.get('/', function(req, res){
 
 app.get('/api/read', function(req, res) {
 
-  Locations.find({})
+  Locations.findAll({})
     .exec(function(err, doc){
 
       if(err){
@@ -78,4 +80,4 @@ app.delete('/api/saved/', function(req, res){
   });
 });
 
-app.listen(port, () => console.log("Listening on port: " + port));
+app.listen(PORT, () => console.log("Listening on port: " + PORT));
