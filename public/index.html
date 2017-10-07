@@ -36,6 +36,10 @@
         margin-left: 10%;
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
        }
+
+       #searchBar {
+        margin: 0 10%;
+       }
   </style>
 
     <title>React App</title>
@@ -58,19 +62,25 @@
     -->
 
     <div class="row valign-wrapper search-bar">
-          <form class="col s10">
+          <div class="col s10">
             <div class="row input-field col s9">
-                
+                  <div class="row" id="searchBar">
+                    <div class="input-field col s12">
+                      <input placeholder="Use a custom starting address or your current location!" id="address" type="text" class="validate">
+                      <label class="active" for="address">Address</label>
+                    </div>
+                  </div>
             </div>
             <div class="row center-align col s9">
-              <a class="waves-effect waves-light btn red">Find Places</a>
-              <a class="waves-effect waves-teal btn-flat">Use my current location</a>
+              <button class="waves-effect waves-light btn red" id="button">Find Places</button>
+              <button class="waves-effect waves-light btn blue" id="userLocation">Use my current location</button>
             </div>
-          </form>
+          </div>
         </div>
     
-    <div class='col s6' id="map">
-      
+    <div class='col s6' id="map"></div>
+      </div>
+
     <div class="results">
         <hr>
         <table>
@@ -89,15 +99,17 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
     
-      <script>
+      <script type="text/javascript">
+        var locationCoordinates = {lat: 37.791298, lng: -122.393743}
+
         function initMap() {
-          var uluru = {lat: 37.791298, lng: -122.393743};
+
           var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
-            center: uluru
+            center: locationCoordinates
           });
           var marker = new google.maps.Marker({
-            position: uluru,
+            position: locationCoordinates,
             map: map
           });
         }
@@ -106,7 +118,7 @@
       <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0jSSeKVs-JuEd77jvV2Gi8Ndc89czfoI&callback=initMap&libraries=places">
       </script>
-      <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0jSSeKVs-JuEd77jvV2Gi8Ndc89czfoI&libraries=places"></script> -->
+
       <script type="text/javascript" src="./logic.js"></script>
 
 

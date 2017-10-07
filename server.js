@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const Locations = require("./models/Locations");
+const Locations = require("./models/locations");
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -34,7 +34,7 @@ app.get('/', function(req, res){
   res.sendFile('./public/index.html');
 })
 
-app.get('/api/saved', function(req, res) {
+app.get('/api/read', function(req, res) {
 
   Locations.find({})
     .exec(function(err, doc){
