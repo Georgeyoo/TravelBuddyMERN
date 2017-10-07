@@ -24,16 +24,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
+  <link rel="stylesheet" type="text/css" href="style.css">
   
   <!-- Google Maps API CDN -->
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0jSSeKVs-JuEd77jvV2Gi8Ndc89czfoI"></script> -->
 
-  <style>
+    <style>
       #map {
-        height: 400px;
-        width: 100%;
+        height: 438px;
+        width: 80%;
+        margin-left: 10%;
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
        }
-    </style>
+  </style>
 
     <title>React App</title>
   </head>
@@ -54,15 +57,26 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
- 
-     <div id="map"></div>
+    <div class="row valign-wrapper search-bar">
+          <form class="col s10">
+            <div class="row input-field col s9">
+                
+            </div>
+            <div class="row center-align col s9">
+              <a class="waves-effect waves-light btn red">Find Places</a>
+              <a class="waves-effect waves-teal btn-flat">Use my current location</a>
+            </div>
+          </form>
+        </div>
+    
+    <div class='col s6' id="map">
       
-    <div id="results">
+    <div class="results">
         <hr>
         <table>
             <thead>
               <tr>
-                <th>Locations near you!</th>
+                <th> Locations near you! </th>
               </tr>
             </thead>
             <tbody></tbody>

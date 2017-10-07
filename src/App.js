@@ -60,7 +60,6 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <h4> { title } </h4>
-        <SearchBar />
 
       </div>
     );
